@@ -41,13 +41,7 @@ struct PlayerControlsView : View {
     let player: AVPlayer
     var body: some View {
         Button(action: {
-            self.playerPaused.toggle()
-            if self.playerPaused {
-                self.player.pause()
-            }
-            else {
-                self.player.play()
-            }
+            buttonAction()
         }) {
             Image(systemName: playerPaused ? "play" : "pause")
                 .tint(.white)
@@ -55,6 +49,16 @@ struct PlayerControlsView : View {
                 .background(RoundedRectangle(cornerRadius: 25).stroke(.white))
         }
 
+    }
+
+    func buttonAction() {
+        self.playerPaused.toggle()
+        if self.playerPaused {
+            self.player.pause()
+        }
+        else {
+            self.player.play()
+        }
     }
 }
 

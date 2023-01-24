@@ -9,6 +9,9 @@ import SwiftUI
 import AVKit
 
 struct ContentView: View {
+
+    @ObservedObject private var connectivity = Connectivity.shared
+
     var body: some View {
         PlayerContainerView(player: AVPlayer(url: (Bundle.main.url(forResource: "movie", withExtension: "mp4"))!))
     }

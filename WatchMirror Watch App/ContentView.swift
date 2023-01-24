@@ -8,27 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
 
-            Text("Hello, world!")
-        }
-        .gesture(
-            DragGesture()
-                .onChanged { newValue in
-//                    print(newValue.location)
-                    Connectivity.shared.send(point: newValue.location)
+    var body: some View {
+        GeometryReader { geometry in
+            Rectangle()
+                .fill(.black)
+                .border(.red)
+                .onTapGesture { gesture in
+                    Connectivity.shared.send(gesture, geometry.size)
                 }
-        )
-        .padding()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+       ContentView()
     }
 }
