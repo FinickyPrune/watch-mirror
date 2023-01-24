@@ -21,6 +21,7 @@
 		AF83DE52297F9FA900A45A08 /* CustomPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83DE51297F9FA900A45A08 /* CustomPlayerView.swift */; };
 		AFAC69C4297FC2A2008D1A87 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC69C3297FC2A2008D1A87 /* Logger.swift */; };
 		AFAC69C5297FC2A2008D1A87 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC69C3297FC2A2008D1A87 /* Logger.swift */; };
+		AFAC69CB297FD484008D1A87 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC69CA297FD484008D1A87 /* Converter.swift */; };
 		AFEF4888297A4F3700FC16F6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF4887297A4F3700FC16F6 /* Connectivity.swift */; };
 		AFEF4889297A51E800FC16F6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF4887297A4F3700FC16F6 /* Connectivity.swift */; };
 		E11CC11B57CDE987B714E97A /* Pods_WatchMirror.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841666681CD465477EFF512C /* Pods_WatchMirror.framework */; };
@@ -69,6 +70,7 @@
 		AF6628B7297A3D360003466A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF83DE51297F9FA900A45A08 /* CustomPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlayerView.swift; sourceTree = "<group>"; };
 		AFAC69C3297FC2A2008D1A87 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		AFAC69CA297FD484008D1A87 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		AFEF4887297A4F3700FC16F6 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		F03D3D004001A6A7FE2158D9 /* Pods_WatchMirror_Watch_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchMirror_Watch_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				AF6628A2297A3D350003466A /* Assets.xcassets */,
 				AF6628A4297A3D350003466A /* Preview Content */,
 				AF83DE51297F9FA900A45A08 /* CustomPlayerView.swift */,
+				AFAC69CA297FD484008D1A87 /* Converter.swift */,
 			);
 			path = WatchMirror;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				AF6628A1297A3D340003466A /* ContentView.swift in Sources */,
 				AF83DE52297F9FA900A45A08 /* CustomPlayerView.swift in Sources */,
 				AF66289F297A3D340003466A /* WatchMirrorApp.swift in Sources */,
+				AFAC69CB297FD484008D1A87 /* Converter.swift in Sources */,
 				AFEF4888297A4F3700FC16F6 /* Connectivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

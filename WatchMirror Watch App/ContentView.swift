@@ -15,7 +15,8 @@ struct ContentView: View {
                 .fill(.black)
                 .border(.red)
                 .onTapGesture { gesture in
-                    Connectivity.shared.send(gesture, geometry.size)
+                    let point = CGPoint(x: max(0, gesture.x), y: max(0, gesture.y))
+                    Connectivity.shared.send(point, geometry.size)
                 }
         }
     }

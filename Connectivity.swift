@@ -112,10 +112,8 @@ extension Connectivity: WCSessionDelegate {
             DispatchQueue.main.async { [self] in
                 if size == nil {
                     size = CGSize(width: width, height: height)
-                    log.debug(size as Any)
                 }
                 point = CGPoint(x: x, y: y)
-                log.debug(point)
             }
         }
     }
