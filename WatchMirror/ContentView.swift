@@ -11,20 +11,20 @@ import AVKit
 struct ContentView: View {
 
     @ObservedObject private var connectivity = Connectivity.shared
-    @State private var converter: Converter?
+
+    var playerContainerView: PlayerContainerView = PlayerContainerView(player: AVPlayer(url: (Bundle.main.url(forResource: "movie", withExtension: "mp4"))!))
 
     var body: some View {
         GeometryReader { geomerty in
-            PlayerContainerView(player: AVPlayer(url: (Bundle.main.url(forResource: "movie", withExtension: "mp4"))!))
+            playerContainerView
                 .onReceive(connectivity.$size) { size in
                     guard let size = size else { return }
-                    log.debug(geomerty.size)
-                    converter = Converter(watchSize: size, iphoneSize: geomerty.size)
+                    Converter.shared.config(watchSize: size, iphoneSize: geomerty.size)
                 }
                 .onReceive(connectivity.$point) { point in
-                    guard let scale = converter?.scale else { return }
+                    guard let scale = Converter.shared.scale else { return }
                     let scaledPoint = point.toScale(scale)
-                    log.debug(scaledPoint)
+                    playerContainerView.didTap(scaledPoint, parentSize: geomerty.size)
                 }
         }
     }

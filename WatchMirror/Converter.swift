@@ -9,12 +9,13 @@ import Foundation
 
 class Converter {
 
-    let scale: CGPoint
+    static let shared = Converter()
 
-    init(watchSize: CGSize, iphoneSize: CGSize) {
+    var scale: CGPoint?
+
+    func config(watchSize: CGSize, iphoneSize: CGSize) {
         scale = CGPoint(x: iphoneSize.width / watchSize.width,
                         y: iphoneSize.height / watchSize.height)
-        log.debug(scale)
     }
 
 }
