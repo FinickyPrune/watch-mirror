@@ -6,21 +6,13 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-            
-        }
-        .padding()
-        .onTapGesture {
-            _ = Connectivity.shared
-        }
+        PlayerContainerView(player: AVPlayer(url: (Bundle.main.url(forResource: "movie", withExtension: "mp4"))!))
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

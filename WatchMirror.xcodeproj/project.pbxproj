@@ -16,6 +16,8 @@
 		AF6628B3297A3D350003466A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6628B2297A3D350003466A /* ContentView.swift */; };
 		AF6628B5297A3D360003466A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF6628B4297A3D360003466A /* Assets.xcassets */; };
 		AF6628B8297A3D360003466A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF6628B7297A3D360003466A /* Preview Assets.xcassets */; };
+		AF673C27297F9CF800C10190 /* movie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AF25ED2C297F9AE800698D75 /* movie.mp4 */; };
+		AF83DE52297F9FA900A45A08 /* CustomPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF83DE51297F9FA900A45A08 /* CustomPlayerView.swift */; };
 		AFEF4888297A4F3700FC16F6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF4887297A4F3700FC16F6 /* Connectivity.swift */; };
 		AFEF4889297A51E800FC16F6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF4887297A4F3700FC16F6 /* Connectivity.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF25ED2C297F9AE800698D75 /* movie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = movie.mp4; sourceTree = "<group>"; };
 		AF66289B297A3D340003466A /* WatchMirror.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchMirror.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF66289E297A3D340003466A /* WatchMirrorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMirrorApp.swift; sourceTree = "<group>"; };
 		AF6628A0297A3D340003466A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		AF6628B2297A3D350003466A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AF6628B4297A3D360003466A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF6628B7297A3D360003466A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AF83DE51297F9FA900A45A08 /* CustomPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlayerView.swift; sourceTree = "<group>"; };
 		AFEF4887297A4F3700FC16F6 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,10 +102,12 @@
 		AF66289D297A3D340003466A /* WatchMirror */ = {
 			isa = PBXGroup;
 			children = (
+				AF25ED2C297F9AE800698D75 /* movie.mp4 */,
 				AF66289E297A3D340003466A /* WatchMirrorApp.swift */,
 				AF6628A0297A3D340003466A /* ContentView.swift */,
 				AF6628A2297A3D350003466A /* Assets.xcassets */,
 				AF6628A4297A3D350003466A /* Preview Content */,
+				AF83DE51297F9FA900A45A08 /* CustomPlayerView.swift */,
 			);
 			path = WatchMirror;
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 			files = (
 				AF6628A6297A3D350003466A /* Preview Assets.xcassets in Resources */,
 				AF6628A3297A3D350003466A /* Assets.xcassets in Resources */,
+				AF673C27297F9CF800C10190 /* movie.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF6628A1297A3D340003466A /* ContentView.swift in Sources */,
+				AF83DE52297F9FA900A45A08 /* CustomPlayerView.swift in Sources */,
 				AF66289F297A3D340003466A /* WatchMirrorApp.swift in Sources */,
 				AFEF4888297A4F3700FC16F6 /* Connectivity.swift in Sources */,
 			);
@@ -384,13 +392,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = WatchMirror;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kravchenko.nsu.watchmirror.WatchMirror;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kravchenko.watchmirror.WatchMirror;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.nsu.watchmirror.WatchMirror.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.watchmirror.WatchMirror.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -414,13 +422,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = WatchMirror;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kravchenko.nsu.watchmirror.WatchMirror;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.kravchenko.watchmirror.WatchMirror;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.nsu.watchmirror.WatchMirror.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.watchmirror.WatchMirror.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -449,14 +457,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.nsu.watchmirror.WatchMirror;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.watchmirror.WatchMirror;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -482,14 +490,14 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.nsu.watchmirror.WatchMirror;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kravchenko.watchmirror.WatchMirror;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
