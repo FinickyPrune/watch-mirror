@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// Apple Watch ContentView simply sends to IPhone coordinates of each touch and display size.
+// (We don't need to send size each time but for this simple solution it just saves time)
+
 struct ContentView: View {
 
     var body: some View {
@@ -20,6 +23,7 @@ struct ContentView: View {
                 }
         }
     }
+
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -20,6 +20,7 @@ struct PlayerView: UIViewRepresentable {
 
 }
 
+// View that stores PlayerView and PlayerControlsView (only play/pause button for now).
 struct PlayerContainerView : View {
 
     private let player: AVPlayer
@@ -37,6 +38,7 @@ struct PlayerContainerView : View {
         }
     }
 
+    // Send touch coordinates deeper to PlayerControlsView.
     func didTap(_ point: CGPoint) {
         playerControlsView.didTap(point)
     }
@@ -46,7 +48,7 @@ struct PlayerControlsView: View {
 
     @ObservedObject private var viewModel = ViewModel()
     let player: AVPlayer
-    
+
     var body: some View {
         GeometryReader { geomerty in
             Button(action: {
@@ -58,12 +60,14 @@ struct PlayerControlsView: View {
                     .background(RoundedRectangle(cornerRadius: viewModel.buttonSize.width/2).stroke(.white))
             }
             .position(x: geomerty.size.width/2, y: geomerty.size.height/2)
+            // Save button frame (coordinates and size) after screen was apeeared.
             .onAppear {
                 viewModel.buttonFrame = CGRect(x: (geomerty.size.width - viewModel.buttonSize.width)/2,
                                                y: (geomerty.size.height - viewModel.buttonSize.height)/2,
                                                width: viewModel.buttonSize.width,
                                                height: viewModel.buttonSize.height)
             }
+            // Play/pause video after changing playPaused.
             .onReceive(viewModel.$playerPaused) { playerPaused in
                 if playerPaused { self.player.pause() }
                 else { self.player.play() }
@@ -72,18 +76,21 @@ struct PlayerControlsView: View {
 
     }
 
+    // Check if play/pause button contains user's touch coordinates.
     func didTap(_ point: CGPoint) {
         if viewModel.buttonFrame.contains(point) {
             buttonAction()
         }
     }
 
+    // Change playPaused value.
     func buttonAction() {
         viewModel.playerPaused.toggle()
     }
 }
 
 extension PlayerControlsView {
+    // ViewModel class is implemented for proper work flow with observed states and properties (such as playerPaused and buttonFrame).
     @MainActor class ViewModel: ObservableObject {
         @Published var playerPaused = true
         @Published var buttonFrame: CGRect = .zero
@@ -91,6 +98,7 @@ extension PlayerControlsView {
     }
 }
 
+// UIKit view used in PlayerView SwiftUI struct.
 class PlayerUIView: UIView {
 
     private let playerLayer = AVPlayerLayer()

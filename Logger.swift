@@ -7,6 +7,8 @@
 
 import SwiftyBeaver
 
+// Third-party SwiftyBeaver logger
+
 let log: SwiftyBeaver.Type = {
     let log = SwiftyBeaver.self
     let console = ConsoleDestination()

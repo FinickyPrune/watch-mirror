@@ -132,10 +132,10 @@
 				AF25ED2C297F9AE800698D75 /* movie.mp4 */,
 				AF66289E297A3D340003466A /* WatchMirrorApp.swift */,
 				AF6628A0297A3D340003466A /* ContentView.swift */,
-				AF6628A2297A3D350003466A /* Assets.xcassets */,
-				AF6628A4297A3D350003466A /* Preview Content */,
 				AF83DE51297F9FA900A45A08 /* CustomPlayerView.swift */,
 				AFAC69CA297FD484008D1A87 /* Converter.swift */,
+				AF6628A2297A3D350003466A /* Assets.xcassets */,
+				AF6628A4297A3D350003466A /* Preview Content */,
 			);
 			path = WatchMirror;
 			sourceTree = "<group>";

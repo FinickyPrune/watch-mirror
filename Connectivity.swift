@@ -8,6 +8,8 @@
 import Foundation
 import WatchConnectivity
 
+// Enums are used to provide keys for message dictionary.
+
 enum Size: String {
     case width
     case height
@@ -18,46 +20,41 @@ enum Point: String {
     case y
 }
 
-enum SessionState: String { case sessionIsActive }
+// Singletone class Connectivity is implemented for communication between Apple Watch and paired IPhone.
 
 final class Connectivity: NSObject, ObservableObject {
-    // 2
-    static let shared = Connectivity()
 
+    static let shared = Connectivity()
 
     @Published var size: CGSize?
     @Published var point: CGPoint = .zero
 
-
-    // 3
     override private init() {
         super.init()
-        // 4
 #if !os(watchOS)
         guard WCSession.isSupported() else {
+            log.error("Session is not supported.")
             return
         }
 #endif
-
-        // 5
         WCSession.default.delegate = self
         WCSession.default.activate()
-
     }
 
+    // Send touch coordinates and display size from Apple Watch to IPhone.
     public func send(_ point: CGPoint, _ size: CGSize) {
         guard WCSession.default.activationState == .activated else {
-            log.debug("Session is not active.")
+            log.error("Session is not active.")
             return
         }
 #if os(watchOS)
         guard WCSession.default.isCompanionAppInstalled else {
-            log.debug("Companion app not installed.")
+            log.error("Companion app not installed.")
             return
         }
 #else
         guard WCSession.default.isWatchAppInstalled else {
-            log.debug("Watch app not installed.")
+            log.error("Watch app not installed.")
             return
         }
 #endif
@@ -95,14 +92,14 @@ extension Connectivity: WCSessionDelegate {
     }
 
 #if os(iOS)
-    func sessionDidBecomeInactive(_ session: WCSession) {
-    }
+    func sessionDidBecomeInactive(_ session: WCSession) {}
 
     func sessionDidDeactivate(_ session: WCSession) {
         session.activate()
     }
 #endif
 
+    // Receive message with touch coordinates and display size on IPhone.
     func session(_ session: WCSession,
                  didReceiveMessage message: [String : Any]) {
         if let width = message[Size.width.rawValue] as? Double,
@@ -117,8 +114,4 @@ extension Connectivity: WCSessionDelegate {
             }
         }
     }
-}
-
-extension Notification.Name {
-    static let sessionDidActive = Notification.Name("sessionDidActive")
 }

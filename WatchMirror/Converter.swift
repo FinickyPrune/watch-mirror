@@ -7,21 +7,21 @@
 
 import Foundation
 
+// Singletone class is implemented to scale points from Apple Watch display to IPhone display.
+
 class Converter {
 
     static let shared = Converter()
 
-    var scale: CGPoint?
+    private var scale: CGPoint = CGPoint(x: 1, y: 1)
 
     func config(watchSize: CGSize, iphoneSize: CGSize) {
         scale = CGPoint(x: iphoneSize.width / watchSize.width,
                         y: iphoneSize.height / watchSize.height)
     }
 
-}
-
-extension CGPoint {
-    func toScale(_ scale: CGPoint) -> CGPoint {
-        return CGPoint(x: self.x * scale.x, y: self.y * scale.y)
+    func scaled(_ point: CGPoint) -> CGPoint {
+        return CGPoint(x: point.x * scale.x, y: point.y * scale.y)
     }
+
 }
