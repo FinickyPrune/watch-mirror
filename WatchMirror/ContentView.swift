@@ -24,7 +24,7 @@ struct ContentView: View {
                 .onReceive(connectivity.$point) { point in
                     guard let scale = Converter.shared.scale else { return }
                     let scaledPoint = point.toScale(scale)
-                    playerContainerView.didTap(scaledPoint, parentSize: geomerty.size)
+                    playerContainerView.didTap(scaledPoint)
                 }
         }
     }

@@ -37,38 +37,43 @@ struct PlayerContainerView : View {
         }
     }
 
-    func didTap(_ point: CGPoint, parentSize: CGSize) {
-        playerControlsView.didTap(point, parentSize: parentSize)
+    func didTap(_ point: CGPoint) {
+        playerControlsView.didTap(point)
     }
 }
 
 struct PlayerControlsView: View {
 
     @ObservedObject private var viewModel = ViewModel()
-    private let buttonSize = CGSize(width: 100, height: 100)
-
     let player: AVPlayer
+    
     var body: some View {
+        GeometryReader { geomerty in
             Button(action: {
                 buttonAction()
             }) {
                 Image(systemName: viewModel.playerPaused ? "play" : "pause")
                     .tint(.white)
-                    .frame(width: buttonSize.width, height: buttonSize.height)
-                    .background(RoundedRectangle(cornerRadius: buttonSize.width/2).stroke(.white))
+                    .frame(width: viewModel.buttonSize.width, height: viewModel.buttonSize.height)
+                    .background(RoundedRectangle(cornerRadius: viewModel.buttonSize.width/2).stroke(.white))
+            }
+            .position(x: geomerty.size.width/2, y: geomerty.size.height/2)
+            .onAppear {
+                viewModel.buttonFrame = CGRect(x: (geomerty.size.width - viewModel.buttonSize.width)/2,
+                                               y: (geomerty.size.height - viewModel.buttonSize.height)/2,
+                                               width: viewModel.buttonSize.width,
+                                               height: viewModel.buttonSize.height)
             }
             .onReceive(viewModel.$playerPaused) { playerPaused in
                 if playerPaused { self.player.pause() }
                 else { self.player.play() }
             }
+        }
+
     }
 
-    func didTap(_ point: CGPoint, parentSize: CGSize) {
-            let buttonFrame = CGRect(x: (parentSize.width - buttonSize.width)/2,
-                                 y: (parentSize.height - buttonSize.height)/2,
-                                 width: buttonSize.width,
-                                 height: buttonSize.height)
-        if buttonFrame.contains(point) {
+    func didTap(_ point: CGPoint) {
+        if viewModel.buttonFrame.contains(point) {
             buttonAction()
         }
     }
@@ -81,6 +86,8 @@ struct PlayerControlsView: View {
 extension PlayerControlsView {
     @MainActor class ViewModel: ObservableObject {
         @Published var playerPaused = true
+        @Published var buttonFrame: CGRect = .zero
+        let buttonSize = CGSize(width: 100, height: 100)
     }
 }
 
